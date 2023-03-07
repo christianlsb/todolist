@@ -27,7 +27,7 @@ export const Title = styled.h1`
 `
 export const Task = styled.div`
   display: flex;
-  width: 250px;
+  width: 340px;
   height: 43px;
   background-color: white;
   margin-top: 10px;
@@ -49,9 +49,6 @@ export const Task = styled.div`
       background-color: red;
       color: white;
       transition: 2s;
-      -moz-transform: scale(1.1);
-      -webkit-transform: scale(1.1);
-      transform: scale(1.1);
     }
   }
 `
