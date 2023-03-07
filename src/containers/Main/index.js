@@ -1,18 +1,44 @@
-import React from "react"
+import React, { useState } from "react"
+import { v4 as uuid } from "uuid"
 
 import { Button } from "../../components"
 import * as S from "./styles"
 
-export default function containers() {
-  const AddNewTask = () => {
-    console.log("New Task added")
+export default function Main() {
+  const [task, setTask] = useState([])
+  const [input, setInput] = useState("")
+
+  function inputChange(e) {
+    setInput(e.target.value)
   }
+  const AddNewTask = () => {
+    setTask([...task, { id: uuid(), text: input }])
+    console.log({ id: uuid(), text: input })
+  }
+
+  const DeleteTask = () => {
+    alert("deleteTask")
+  }
+
   return (
     <S.Container>
-      <div>
-        <S.Title>TodoList</S.Title>
+      <S.Title>TodoList</S.Title>
+
+      <S.ContainerItens>
+        <input onChange={inputChange} type={"text"} />
         <Button onClick={AddNewTask}>Added</Button>
-      </div>
+      </S.ContainerItens>
+      <S.ContainerTasks>
+        {task && task.length > 0 ? (
+          task.map(task => (
+            <S.Task key={task.id}>
+              {task.text} <button onClick={DeleteTask}>Delete</button>
+            </S.Task>
+          ))
+        ) : (
+          <p style={{ color: "white" }}>No tasks added</p>
+        )}
+      </S.ContainerTasks>
     </S.Container>
   )
 }
