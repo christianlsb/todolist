@@ -15,8 +15,8 @@ export default function Main() {
   const schema = yup
     .object({
       task: yup
-        .string("A task deve ser um texto")
-        .min(4, "A task deve conter no minimo 4 caracteres")
+        .string("The task must be a text")
+        .min(4, "The task must contain at least 4 characters")
         .required("De um nome a task")
     })
     .required()
@@ -65,6 +65,7 @@ export default function Main() {
           onChange={inputChange}
           type={"text"}
           placeholder={"enter your task..."}
+          autoComplete={"off"}
         />
         <Button onClick={AddNewTask}>Added</Button>
         {errors.task && (
