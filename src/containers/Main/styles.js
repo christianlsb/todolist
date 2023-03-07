@@ -9,6 +9,7 @@ export const Container = styled.div`
   flex-direction: column;
   text-align: center;
   align-items: center;
+
   input {
     width: 250px;
     height: 43px;
@@ -19,6 +20,7 @@ export const Container = styled.div`
     -webkit-box-shadow: 10px 10px 7px -8px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 10px 10px 7px -8px rgba(0, 0, 0, 0.75);
     box-shadow: 10px 10px 7px -8px rgba(0, 0, 0, 0.75);
+    margin-right: 15px;
   }
 `
 export const Title = styled.h1`
@@ -37,28 +39,39 @@ export const Task = styled.div`
   -moz-box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
   font-size: 1rem;
-  button {
-    cursor: pointer;
-    outline: none;
-    border: 1px solid #edf2f7;
-    width: 60px;
-    height: 25px;
-    background-color: transparent;
-    border-radius: 5px;
-    &:hover {
-      background-color: red;
-      color: white;
-      transition: 2s;
-    }
-  }
 `
 export const ContainerTasks = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 15px;
 `
-export const ContainerItens = styled.div`
-  display: flex;
-  gap: 10px;
-  flex-direction: row;
+
+export const DeleteButton = styled.button`
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #edf2f7;
+  width: 60px;
+  height: 25px;
+  background-color: transparent;
+  border-radius: 5px;
+  &:hover {
+    background-color: purple;
+    color: white;
+    transition: 2s;
+  }
+`
+
+export const CheckedButton = styled.button`
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #edf2f7;
+  width: 60px;
+  height: 25px;
+  background-color: transparent;
+  border-radius: 5px;
+  &:hover {
+    background-color: green;
+    color: white;
+    transition: 2s;
+  }
 `

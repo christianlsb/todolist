@@ -63,13 +63,13 @@ export default function Main() {
         {task && task.length > 0 ? (
           task.map(task => (
             <S.Task key={task.id}>
-              <button>
+              <S.CheckedButton>
                 <FcApproval />
-              </button>
+              </S.CheckedButton>
               {task.text}
-              <button onClick={() => DeleteTask(task.id)}>
+              <S.DeleteButton onClick={() => DeleteTask(task.id)}>
                 <FcEmptyTrash fontSize={18} />
-              </button>
+              </S.DeleteButton>
             </S.Task>
           ))
         ) : (
