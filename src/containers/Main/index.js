@@ -60,7 +60,12 @@ export default function Main() {
     <S.Container>
       <S.Title>TodoList</S.Title>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <input {...register("task")} onChange={inputChange} type={"text"} />
+        <input
+          {...register("task")}
+          onChange={inputChange}
+          type={"text"}
+          placeholder={"enter your task..."}
+        />
         <Button onClick={AddNewTask}>Added</Button>
         {errors.task && (
           <p style={{ color: "red", marginTop: "10px" }}>
