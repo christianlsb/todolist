@@ -16,8 +16,10 @@ export default function Main() {
     console.log({ id: uuid(), text: input })
   }
 
-  const DeleteTask = () => {
-    alert("deleteTask")
+  const DeleteTask = id => {
+    const novList = task.filter(task => task.id !== id)
+
+    setTask(novList)
   }
 
   return (
@@ -32,7 +34,8 @@ export default function Main() {
         {task && task.length > 0 ? (
           task.map(task => (
             <S.Task key={task.id}>
-              {task.text} <button onClick={DeleteTask}>Delete</button>
+              {task.text}{" "}
+              <button onClick={() => DeleteTask(task.id)}>Delete</button>
             </S.Task>
           ))
         ) : (
