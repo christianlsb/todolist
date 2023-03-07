@@ -38,17 +38,22 @@ export default function Main() {
     const taskSchema = schema.fields.task
     try {
       taskSchema.validateSync(input)
-      setTask([...task, { id: uuid(), text: input }])
-      setInput("")
+      setTask([...task, { id: uuid(), text: input, finished: false }])
     } catch (error) {
       console.log(error.message)
     }
   }
+  const CheckedTesk = id => {
+    const newListTask = task.map(task =>
+      task.id === id ? { ...task, finished: !task.finished } : task
+    )
 
+    setTask(newListTask)
+  }
   const DeleteTask = id => {
-    const novList = task.filter(task => task.id !== id)
+    const novListTask = task.filter(task => task.id !== id)
 
-    setTask(novList)
+    setTask(novListTask)
   }
 
   return (
@@ -57,13 +62,17 @@ export default function Main() {
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("task")} onChange={inputChange} type={"text"} />
         <Button onClick={AddNewTask}>Added</Button>
-        {errors.task && <p style={{ color: "red" }}>{errors.task.message}</p>}
+        {errors.task && (
+          <p style={{ color: "red", marginTop: "10px" }}>
+            {errors.task.message}
+          </p>
+        )}
       </form>
       <S.ContainerTasks>
         {task && task.length > 0 ? (
           task.map(task => (
-            <S.Task key={task.id}>
-              <S.CheckedButton>
+            <S.Task key={task.id} className={task.finished ? "finished" : ""}>
+              <S.CheckedButton onClick={() => CheckedTesk(task.id)}>
                 <FcApproval />
               </S.CheckedButton>
               {task.text}

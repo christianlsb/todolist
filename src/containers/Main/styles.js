@@ -39,6 +39,10 @@ export const Task = styled.div`
   -moz-box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
   box-shadow: 10px 10px 32px 0px rgba(0, 0, 0, 0.75);
   font-size: 1rem;
+  &.finished {
+    color: gray;
+    text-decoration: line-through;
+  }
 `
 export const ContainerTasks = styled.div`
   display: flex;
